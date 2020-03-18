@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Knative Authors
+Copyright The Kubernetes Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -25,6 +25,14 @@ type ConfigurationListerExpansion interface{}
 // ConfigurationNamespaceListerExpansion allows custom methods to be added to
 // ConfigurationNamespaceLister.
 type ConfigurationNamespaceListerExpansion interface{}
+
+// FuncPoolListerExpansion allows custom methods to be added to
+// FuncPoolLister.
+type FuncPoolListerExpansion interface{}
+
+// FuncPoolNamespaceListerExpansion allows custom methods to be added to
+// FuncPoolNamespaceLister.
+type FuncPoolNamespaceListerExpansion interface{}
 
 // RevisionListerExpansion allows custom methods to be added to
 // RevisionLister.

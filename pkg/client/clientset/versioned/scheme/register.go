@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Knative Authors
+Copyright The Kubernetes Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -37,9 +37,9 @@ var ParameterCodec = runtime.NewParameterCodec(Scheme)
 var localSchemeBuilder = runtime.SchemeBuilder{
 	autoscalingv1alpha1.AddToScheme,
 	networkingv1alpha1.AddToScheme,
+	servingv1.AddToScheme,
 	servingv1alpha1.AddToScheme,
 	servingv1beta1.AddToScheme,
-	servingv1.AddToScheme,
 }
 
 // AddToScheme adds all types of this clientset into the given scheme. This allows composition

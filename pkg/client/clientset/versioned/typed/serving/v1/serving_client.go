@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Knative Authors
+Copyright The Kubernetes Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import (
 type ServingV1Interface interface {
 	RESTClient() rest.Interface
 	ConfigurationsGetter
+	FuncPoolsGetter
 	RevisionsGetter
 	RoutesGetter
 	ServicesGetter
@@ -39,6 +40,10 @@ type ServingV1Client struct {
 
 func (c *ServingV1Client) Configurations(namespace string) ConfigurationInterface {
 	return newConfigurations(c, namespace)
+}
+
+func (c *ServingV1Client) FuncPools(namespace string) FuncPoolInterface {
+	return newFuncPools(c, namespace)
 }
 
 func (c *ServingV1Client) Revisions(namespace string) RevisionInterface {

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Knative Authors
+Copyright The Kubernetes Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -94,6 +94,11 @@ func (c *Clientset) NetworkingV1alpha1() networkingv1alpha1.NetworkingV1alpha1In
 	return &fakenetworkingv1alpha1.FakeNetworkingV1alpha1{Fake: &c.Fake}
 }
 
+// ServingV1 retrieves the ServingV1Client
+func (c *Clientset) ServingV1() servingv1.ServingV1Interface {
+	return &fakeservingv1.FakeServingV1{Fake: &c.Fake}
+}
+
 // ServingV1alpha1 retrieves the ServingV1alpha1Client
 func (c *Clientset) ServingV1alpha1() servingv1alpha1.ServingV1alpha1Interface {
 	return &fakeservingv1alpha1.FakeServingV1alpha1{Fake: &c.Fake}
@@ -102,9 +107,4 @@ func (c *Clientset) ServingV1alpha1() servingv1alpha1.ServingV1alpha1Interface {
 // ServingV1beta1 retrieves the ServingV1beta1Client
 func (c *Clientset) ServingV1beta1() servingv1beta1.ServingV1beta1Interface {
 	return &fakeservingv1beta1.FakeServingV1beta1{Fake: &c.Fake}
-}
-
-// ServingV1 retrieves the ServingV1Client
-func (c *Clientset) ServingV1() servingv1.ServingV1Interface {
-	return &fakeservingv1.FakeServingV1{Fake: &c.Fake}
 }

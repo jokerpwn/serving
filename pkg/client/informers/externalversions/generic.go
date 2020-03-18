@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Knative Authors
+Copyright The Kubernetes Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -73,6 +73,8 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 		// Group=serving.knative.dev, Version=v1
 	case v1.SchemeGroupVersion.WithResource("configurations"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Serving().V1().Configurations().Informer()}, nil
+	case v1.SchemeGroupVersion.WithResource("funcpools"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Serving().V1().FuncPools().Informer()}, nil
 	case v1.SchemeGroupVersion.WithResource("revisions"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Serving().V1().Revisions().Informer()}, nil
 	case v1.SchemeGroupVersion.WithResource("routes"):

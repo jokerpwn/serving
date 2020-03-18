@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Knative Authors
+Copyright The Kubernetes Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -26,6 +26,8 @@ import (
 type Interface interface {
 	// Configurations returns a ConfigurationInformer.
 	Configurations() ConfigurationInformer
+	// FuncPools returns a FuncPoolInformer.
+	FuncPools() FuncPoolInformer
 	// Revisions returns a RevisionInformer.
 	Revisions() RevisionInformer
 	// Routes returns a RouteInformer.
@@ -48,6 +50,11 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 // Configurations returns a ConfigurationInformer.
 func (v *version) Configurations() ConfigurationInformer {
 	return &configurationInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// FuncPools returns a FuncPoolInformer.
+func (v *version) FuncPools() FuncPoolInformer {
+	return &funcPoolInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // Revisions returns a RevisionInformer.
